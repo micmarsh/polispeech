@@ -9,10 +9,14 @@
 
 (def PAGE_HEADER (html [:head [:title PAGE_TITLE]]))
 
+(def JS_LOCATION "js/speeches.js")
+
 (defn- surrounding-page [speech]
     [:body
         [:h1 PAGE_TITLE]
-        [:speech speech]])
+        [:p speech]
+
+        [:script {:src JS_LOCATION}]])
 
 (defn main-page [theme]
     (let [raw-speech (eval-grammar political-speech (keyword theme))

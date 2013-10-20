@@ -8,7 +8,8 @@
             [ring.middleware.reload :as reload]))
 
 (defroutes routes
-    (ANY "/" [] render-main))
+    (ANY "/" [] render-main)
+    (route/resources "/"))
 
 (def app
     (-> routes

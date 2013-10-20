@@ -11,5 +11,18 @@
                 [http-kit "2.1.13"]
                 [ring/ring-devel "1.1.8"]
                 [ring-cors "0.1.0"]
-                [hiccup "1.0.4"]]
-  :main polispeech.core)
+                [hiccup "1.0.4"]
+                [org.clojure/clojurescript "0.0-1913"]]
+
+  :min-lein-version "2.1.2"
+
+  :main polispeech.core
+
+  :plugins [[lein-cljsbuild "0.3.3"]]
+
+  :cljsbuild {:builds
+              [{:source-paths ["src/cljs"]
+                :compiler {:output-to "resources/public/js/speeches.js"
+                           :optimizations :advanced
+                           :pretty-print true}}]}
+  )

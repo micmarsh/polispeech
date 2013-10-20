@@ -5,10 +5,11 @@
         [liberator.core :refer [resource defresource]]
         [liberator.dev :refer [wrap-trace]]))
 
+(def DEFAULT_THEME "mainstream")
 (defn- get-params [context]
     (get-in context [:request :params]))
-(defn get-theme [ctx]
-    (or (:theme (get-params ctx)) "mainstream"))
+(defn- get-theme [ctx]
+    (or (:theme (get-params ctx)) DEFAULT_THEME))
 
 (defresource render-main
     :available-media-types ["text/html"]

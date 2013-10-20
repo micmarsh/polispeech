@@ -2,8 +2,7 @@
     (:use
         [clojure.string :only [split trim join]]
         [words.parser :only [eval-grammar]]
-        [polispeech.templates :only [political-speech]]
-))
+        [polispeech.templates :only [political-speech]]))
 
 (def NEWLINE_REGEX #"\n")
 (def HTML_BREAK "<br/>")

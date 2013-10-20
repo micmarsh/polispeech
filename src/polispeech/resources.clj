@@ -5,15 +5,15 @@
         [liberator.core :refer [resource defresource]]
         [liberator.dev :refer [wrap-trace]]))
 
-
 (defn- get-params [context]
     (get-in context [:request :params]))
+(def get-theme (comp :theme get-params))
 
 (defresource render-main
     :available-media-types ["text/html"]
     :allowed-methods [:get]
     :handle-ok (fn [context]
-        (let [theme (:theme (get-params context))]
+        (let [theme (get-theme context)]
             (main-page theme)))
 
 )
@@ -22,7 +22,7 @@
     :available-media-types ["text/plain"]
     :allowed-methods [:get]
     :handle-ok (fn [context]
-        (let [theme (:theme (get-params context))
+        (let [theme (get-theme context)
               make-result (comp htmlize-newlines get-political-speech)]
             (make-result theme)))
 )

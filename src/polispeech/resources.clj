@@ -10,7 +10,6 @@
 (defresource render-main
     :available-media-types ["text/html"]
     :allowed-methods [:get]
-
     :handle-ok (fn [context]
         (let [theme (:theme (get-params context))]
             (main-page theme)))

@@ -9,7 +9,7 @@
     :follow-up [ (hash-set "2" "6") (hash-set "years" "weeks") "ago today," :enemy :did-bad-thing "."]
         :enemy {
             :mainstream (hash-set "my opponent" :other-party)
-            :radical (hash-set "the 1%" "our capitahash-set oppressors")
+            :radical (hash-set "the 1%" "our capitaist oppressors")
             :else :other-party
         }
             :other-party "the other party"

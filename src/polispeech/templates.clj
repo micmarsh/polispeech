@@ -73,7 +73,7 @@
 
                 :radical ["While you have struggled "
                     (hash-set "to make use of your sociology degrees"
-                        "under the heal of your employers"
+                        "under the heel of your employers"
                         "for dignity in a capitalist society") ","
                     (hash-set :bankers :politicians)
                     " have grown fat and rich"

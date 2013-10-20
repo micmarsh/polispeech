@@ -16,7 +16,6 @@
     :handle-ok (fn [context]
         (let [theme (get-theme context)]
             (main-page theme)))
-
 )
 
 (defresource get-speech

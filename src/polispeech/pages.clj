@@ -1,31 +1,33 @@
 (ns polispeech.pages
     (:use
-        [words.parser :only [eval-grammar]]
-        [clojure.string :only [split trim join]]
-        [hiccup.core :only [html]]
-        [polispeech.templates :only [political-speech]]))
+        [polispeech.speeches :only [main-speech-from htmlize-newlines]]
+        [hiccup.core :only [html]]))
 
-(def NEWLINE_REGEX #"\n")
-(def HTML_BREAK "<br/>")
 
 (def PAGE_TITLE "Political Speech Generator")
 
 (def PAGE_HEADER (html [:head [:title PAGE_TITLE]]))
 
-(defn htmlize-newlines [no-html]
-    "Replaces '\\n' with '<br/>'"
-    (->> (split no-html NEWLINE_REGEX)
-        (map trim)
-        (join HTML_BREAK )))
+(def ALLOWED_THEMES #{"mainstream" "radical"})
 
 
-(defn- surrounding-page [speech]
-    [:body
-        [:h1 PAGE_TITLE]
-        [:speech speech]])
+;TODO a better way to make those two args one thing,
+;move that select stuff elsewhere
+(defn- surrounding-page [speech current-theme]
+    (let [selected? #(= % current-theme)]
+        [:body
+            [:h1 PAGE_TITLE]
+            [:p#speech speech]
+            [:select#theme
+                (for [theme ALLOWED_THEMES]
+                    [:option
+                    (if (selected? theme)
+                        {:value theme :selected "_"}
+                        {:value theme})
+                    theme])]]))
 
 (defn main-page [theme]
-    (let [raw-speech (eval-grammar political-speech (keyword theme))
+    (let [raw-speech (main-speech-from theme)
           with-html (htmlize-newlines raw-speech)]
           (str PAGE_HEADER
-            (html (surrounding-page with-html)))))
+            (html (surrounding-page with-html theme)))))

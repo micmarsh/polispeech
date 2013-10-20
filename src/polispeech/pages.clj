@@ -4,11 +4,9 @@
         [hiccup.core :only [html]]))
 
 (def PAGE_TITLE "Political Speech Generator")
-
 (def PAGE_HEADER (html [:head [:title PAGE_TITLE]]))
 
 (def ALLOWED_THEMES #{"mainstream" "radical"})
-
 (def JS_LOCATION "js/speeches.js")
 
 

@@ -3,7 +3,8 @@
         [polispeech.utils :only [get-req]]))
 
 (def LOCALHOST "localhost:3000")
-(def HOST (str "http://" LOCALHOST "/"))
+(def HEROKU "polispeech.herokuapp.com")
+(def HOST (str "http://" HEROKU "/"))
 (def SPEECH_URL (str HOST "speech"))
 
 (defn get-speech [theme]

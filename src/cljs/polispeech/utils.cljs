@@ -1,6 +1,6 @@
 (ns polispeech.utils
     (:require
-        [goog.new.XhrIo :as xhr])
+        [goog.net.XhrIo :as xhr])
     (:use
         [cljs.core.async :only [chan close!]])
     (:use-macros

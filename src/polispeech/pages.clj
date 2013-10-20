@@ -1,8 +1,7 @@
 (ns polispeech.pages
     (:use
-        [polispeech.speeches :only [main-speech-from htmlize-newlines]]
+        [polispeech.speeches :only [htmlize-newlines get-political-speech]]
         [hiccup.core :only [html]]))
-
 
 (def PAGE_TITLE "Political Speech Generator")
 
@@ -10,24 +9,24 @@
 
 (def ALLOWED_THEMES #{"mainstream" "radical"})
 
+(def JS_LOCATION "js/speeches.js")
 
-;TODO a better way to make those two args one thing,
-;move that select stuff elsewhere
+
 (defn- surrounding-page [speech current-theme]
-    (let [selected? #(= % current-theme)]
-        [:body
-            [:h1 PAGE_TITLE]
-            [:p#speech speech]
-            [:select#theme
-                (for [theme ALLOWED_THEMES]
-                    [:option
-                    (if (selected? theme)
+    [:body
+        [:h1 PAGE_TITLE]
+        [:p#speech speech]
+        [:select#theme
+            (for [theme ALLOWED_THEMES]
+                [:option
+                    (if (= theme current-theme)
                         {:value theme :selected "_"}
                         {:value theme})
-                    theme])]]))
+                theme])]
+        [:script {:src JS_LOCATION}]])
 
 (defn main-page [theme]
-    (let [raw-speech (main-speech-from theme)
+    (let [raw-speech (get-political-speech theme)
           with-html (htmlize-newlines raw-speech)]
           (str PAGE_HEADER
             (html (surrounding-page with-html theme)))))

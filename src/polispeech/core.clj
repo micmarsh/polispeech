@@ -1,6 +1,6 @@
 (ns polispeech.core
     (:use [compojure.core :only [ANY GET POST defroutes]]
-          [polispeech.resources :only [render-main]]
+          [polispeech.resources :only [render-main get-speech]]
         ring.middleware.cors
         org.httpkit.server)
     (:require [compojure.handler :as handler]
@@ -8,7 +8,9 @@
             [ring.middleware.reload :as reload]))
 
 (defroutes routes
-    (ANY "/" [] render-main))
+    (ANY "/" [] render-main)
+    (ANY "/speech" [] get-speech)
+    (route/resources "/"))
 
 (def app
     (-> routes

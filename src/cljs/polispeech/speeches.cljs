@@ -1,8 +1,6 @@
 (ns polispeech.speeches
     (:use
-        [polispeech.utils :only [get-req log]])
-    (:use-macros
-        [cljs.core.async.macros :only [go]]))
+        [polispeech.utils :only [get-req log]]))
 
 (def LOCALHOST "localhost:3000")
 (def HOST (str "http://" LOCALHOST "/"))
@@ -10,6 +8,6 @@
 
 (defn get-speech [theme]
     (let [url (str SPEECH_URL "?theme=" theme)
-        result (go (<! (get-req url)))]
+        result (get-req url)]
     (log result)
-    result)
+    result))

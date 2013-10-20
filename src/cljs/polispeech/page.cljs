@@ -4,7 +4,8 @@
         [polispeech.utils :only [selected-text event-elem log]]
         [polispeech.speeches :only [get-speech]])
     (:use-macros
-       [dommy.macros :only [sel1]]))
+       [dommy.macros :only [sel1]]
+       [cljs.core.async.macros :only [go]]))
 
 (def speech (sel1 :p#speech))
 (def selector (sel1 :select#theme))
@@ -15,8 +16,9 @@
 
 (listen! selector :change
     (fn [event]
-        (let [theme (event-text event)
-              new-speech (get-speech theme)]
-            (set-speech! new-speech))))
+        (go
+            (let [theme (event-text event)
+                  new-speech (get-speech theme)]
+                (set-speech! (<! new-speech))))))
 
 

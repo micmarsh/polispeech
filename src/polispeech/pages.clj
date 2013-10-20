@@ -5,10 +5,12 @@
         [hiccup.core :only [html]]
         [polispeech.templates :only [political-speech]]))
 
-(def allowed-themes #{:mainstream :radical})
-
 (def NEWLINE_REGEX #"\n")
 (def HTML_BREAK "<br/>")
+
+(def PAGE_TITLE "Political Speech Generator")
+
+(def PAGE_HEADER (html [:head [:title PAGE_TITLE]]))
 
 (defn htmlize-newlines [no-html]
     "Replaces '\\n' with '<br/>'"
@@ -16,7 +18,14 @@
         (map trim)
         (join HTML_BREAK )))
 
+
+(defn- surrounding-page [speech]
+    [:body
+        [:h1 PAGE_TITLE]
+        [:speech speech]])
+
 (defn main-page [theme]
     (let [raw-speech (eval-grammar political-speech (keyword theme))
           with-html (htmlize-newlines raw-speech)]
-            (html [:p with-html])))
+          (str PAGE_HEADER
+            (html (surrounding-page with-html)))))

@@ -12,17 +12,29 @@
                 [ring/ring-devel "1.1.8"]
                 [ring-cors "0.1.0"]
                 [hiccup "1.0.4"]
-                [org.clojure/clojurescript "0.0-1913"]]
+                ;prolly use in both
+                [org.clojure/core.async "0.1.242.0-44b1e3-alpha"]
+                ;cljs deps
+                [org.clojure/clojurescript "0.0-1934"]
+                [prismatic/dommy "0.1.1"]]
 
   :min-lein-version "2.1.2"
 
   :main polispeech.core
 
-  :plugins [[lein-cljsbuild "0.3.3"]]
+  :plugins [[lein-cljsbuild "0.3.4"]]
 
   :cljsbuild {:builds
-              [{:source-paths ["src/cljs"]
-                :compiler {:output-to "resources/public/js/speeches.js"
-                           :optimizations :advanced
-                           :pretty-print true}}]}
+              {
+                :dev
+                  {:source-paths ["src/cljs"]
+                    :compiler {:output-to "resources/public/js/speeches.js"
+                               :optimizations :whitespace
+                               :pretty-print true}}
+                :prod
+                  {:source-paths ["src/cljs"]
+                    :compiler {:output-to "resources/public/js/speeches.js"
+                               :optimizations :advanced
+                               :pretty-print false}}
+              }}
   )

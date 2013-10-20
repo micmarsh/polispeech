@@ -1,23 +1,13 @@
 (ns polispeech.pages
     (:use
-        [words.parser :only [eval-grammar]]
-        [clojure.string :only [split trim join]]
+        [polispeech.speeches :only [htmlize-newlines]]
         [hiccup.core :only [html]]
+        [words.parser :only [eval-grammar]]
         [polispeech.templates :only [political-speech]]))
-
-(def NEWLINE_REGEX #"\n")
-(def HTML_BREAK "<br/>")
 
 (def PAGE_TITLE "Political Speech Generator")
 
 (def PAGE_HEADER (html [:head [:title PAGE_TITLE]]))
-
-(defn htmlize-newlines [no-html]
-    "Replaces '\\n' with '<br/>'"
-    (->> (split no-html NEWLINE_REGEX)
-        (map trim)
-        (join HTML_BREAK )))
-
 
 (defn- surrounding-page [speech]
     [:body

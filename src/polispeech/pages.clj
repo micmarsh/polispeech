@@ -1,9 +1,7 @@
 (ns polispeech.pages
     (:use
-        [polispeech.speeches :only [htmlize-newlines]]
-        [hiccup.core :only [html]]
-        [words.parser :only [eval-grammar]]
-        [polispeech.templates :only [political-speech]]))
+        [polispeech.speeches :only [htmlize-newlines get-political-speech]]
+        [hiccup.core :only [html]]))
 
 (def PAGE_TITLE "Political Speech Generator")
 
@@ -27,7 +25,7 @@
         [:script {:src JS_LOCATION}]])
 
 (defn main-page [theme]
-    (let [raw-speech (eval-grammar political-speech (keyword theme))
+    (let [raw-speech (get-political-speech theme)
           with-html (htmlize-newlines raw-speech)]
           (str PAGE_HEADER
             (html (surrounding-page with-html theme)))))

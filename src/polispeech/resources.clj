@@ -7,7 +7,8 @@
 
 (defn- get-params [context]
     (get-in context [:request :params]))
-(def get-theme (comp :theme get-params))
+(defn get-theme [ctx]
+    (or (:theme (get-params ctx)) "mainstream"))
 
 (defresource render-main
     :available-media-types ["text/html"]

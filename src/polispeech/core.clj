@@ -19,5 +19,8 @@
     (wrap-cors
         :access-control-allow-origin #".+")))
 
-(defn -main [& args]
-    (run-server app {:port 3000}))
+(defn -main
+    ([]
+        (run-server app {:port 3000}))
+    ([port] ;heroku!
+        (run-server app {:port (Integer. port) :join? false})))

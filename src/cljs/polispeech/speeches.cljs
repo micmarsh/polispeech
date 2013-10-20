@@ -1,6 +1,6 @@
 (ns polispeech.speeches
     (:use
-        [polispeech.utils :only [get-req]])
+        [polispeech.utils :only [get-req log]])
     (:use-macros
         [cljs.core.async.macros :only [go]]))
 
@@ -9,5 +9,7 @@
 (def SPEECH_URL (str HOST "speech"))
 
 (defn get-speech [theme]
-    (let [url (str SPEECH_URL "?theme=" theme)]
-    (go (<! (get-req url)))))
+    (let [url (str SPEECH_URL "?theme=" theme)
+        result (go (<! (get-req url)))]
+    (log result)
+    result)

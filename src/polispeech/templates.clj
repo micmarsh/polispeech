@@ -9,7 +9,7 @@
     :follow-up [ (hash-set "2" "6") (hash-set "years" "weeks") "ago today," :enemy :did-bad-thing "."]
         :enemy {
             :mainstream (hash-set "my opponent" :other-party)
-            :radical (hash-set "the 1%" "our capitaist oppressors")
+            :radical (hash-set "the 1%" "our capitalist oppressors")
             :else :other-party
         }
             :other-party "the other party"
@@ -74,7 +74,7 @@
                 :radical ["While you have struggled "
                     (hash-set "to make use of your sociology degrees"
                         "under the heal of your employers"
-                        "for dignity in a capitahash-set society") ","
+                        "for dignity in a capitalist society") ","
                     (hash-set :bankers :politicians)
                     " have grown fat and rich"
                 ]

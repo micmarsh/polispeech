@@ -1,6 +1,6 @@
 # Political Speech Generator
 
-Running for office? Running a union or something? Make a speech!
+Running for office? Organizing an "Occupy" rally? Stop wasting money (or magical non-money) on speechwriters!
 
 ## Usage
 

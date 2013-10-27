@@ -6,6 +6,8 @@
     (:use-macros
         [cljs.core.async.macros :only [go alt!]]))
 
+(def HOST (aget js/location "host"))
+
 (defn selected-text[selector]
     (let [items-array (aget selector "selectedOptions")
           item (aget items-array 0)

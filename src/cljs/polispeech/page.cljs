@@ -16,6 +16,7 @@
 
 (listen! selector :change
     (fn [event]
+        (log (event-elem event))
         (go
             (let [theme (event-text event)
                   new-speech (get-speech theme)]

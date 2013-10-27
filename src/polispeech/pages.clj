@@ -7,7 +7,9 @@
 (def PAGE_HEADER (html [:head [:title PAGE_TITLE]]))
 
 (def ALLOWED_THEMES #{"mainstream" "radical"})
-(def JS_LOCATION "js/speeches.js/?v=1")
+
+(def JS_VERSION "1.0.1")
+(def JS_LOCATION (str "js/speeches.js/?v=" JS_VERSION))
 
 
 (defn- surrounding-page [speech current-theme]

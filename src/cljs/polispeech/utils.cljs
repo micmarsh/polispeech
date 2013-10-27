@@ -12,7 +12,7 @@
 (def HOST (location-part "host"))
 (def PROTOCOL (location-part "protocol"))
 
-;TODO: a macro that accounts for ff v. chrome
+;TODO: (not a macro b/c compile time) that accounts for ff v. chrome
 ;(maybe dommy has a way to do this)
 ;for reference: ff selector element have an "options" array, and
 ; a "selectedIndex" property that can be used to get "item" below,

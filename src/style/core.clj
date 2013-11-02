@@ -2,10 +2,13 @@
     (:use [garden.def :only [defstyles]]
           [garden.units :only [px]]))
 
-(def speech-margin "0 20% 0 20%")
+(def SPEECH_MARGIN "0 20% 0 20%")
+(def TITLE_MARGIN "0 50% 0 %50")
 
 (defstyles main
     [:body
+        [:h1
+            {:margin SPEECH_MARGIN}]
         [:p
-            {:margin speech-margin}]])
+            {:margin SPEECH_MARGIN}]])
 

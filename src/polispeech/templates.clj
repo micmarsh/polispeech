@@ -49,7 +49,7 @@
 )
 
 (deftemplate speech-closing
-    [:haters :gonna-hate :historical-validity ]; :inspiration]
+    [:haters :gonna-hate :historical-validity :inspiration]
      :haters
          {:mainstream [ :lead-in-haters
                 #{"some folks" "they" } ]
@@ -72,7 +72,7 @@
                                 ["inspire revolution in the "
                                 #{"universities" "factories" "cities"}]
                             }
-                :oppressive-institution  #{"the modern economy"
+                :oppressive-institution  #{"the myths of capitalist economics   "
                                         "post-agrarian society"
                                         "planned obsolesence"}
          :finish-thought [#{"but" "however,"}
@@ -84,7 +84,8 @@
                                  :radical #{"greed" "ignorance" "bourgeois upbringings"}}]
      :historical-validity {:mainstream
                             ["Did" :president :concede  "when" :opposed-him "? No!" ]
-                         :radical  ""}
+                         :radical
+                            ["Just as" :victims :triumphed ", so shall we" :also-triumph "!"]}
         :president #{"George Washington" "Lincoln" "Teddy Roosevelt" "FDR"}
         :concede #{"give up" "step down" "throw in the towel"}
         :opposed-him [:who :did-what]
@@ -93,7 +94,31 @@
             :did-what #{"attempted to tarnish his legacy"
                         "opposed all of his essential reforms"
                         "refused to cooperate with his grand vision"}
+        :victims ["the"
+                    #{"students" "workers" "underclass" "people"}
+                  "of revolutions past"]
 
+        :triumphed [#{"heroically" "valiantly"}
+                    #{"organized their strikes"
+                      "were fired from their jobs"
+                      "formed unions"
+                      "did a lot of drugs"}]
+
+        :also-triumph #{"inspire a brand new revolution"
+                        ["move society beyond the oppression of"
+                        #{"money" "patriarchy" "big business"}]
+                        "hand out some socialist fliers"}
+     :inspiration {
+        :mainstream ["Let's " :useless-inspirational "!" ]
+        :radical [""]
+     }
+        :useless-inspirational [:useless-inspire-action "and" :get-result]
+            :useless-inspire-action #{"get to the ballot box"
+                                "get to work"
+                                "pick up our phones"}
+            :get-result #{"create some real change in Washington"
+                          "move our nation in the right direction"
+                          "secure our Country's future"}
 )
 
 (deftemplate political-speech

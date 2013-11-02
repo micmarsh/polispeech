@@ -53,8 +53,7 @@
      :haters
          {:mainstream [ :lead-in-haters
                 #{"some folks" "they" } ]
-         :radical [#{ "Comrades, " :lead-in-haters}
-                  #{"the happily employed" :bankers "corporate CEOs"}] }
+         :radical #{"The happily employed" "Greedy bankers" "Corporate CEOs"}}
          :lead-in-haters #{"My friends, " "Citizens, "}
      :gonna-hate [:speak-verb "we don't" :do-enough "." :finish-thought "."]
          :speak-verb ["may" #{"think" "say" "proclaim"} "that"]

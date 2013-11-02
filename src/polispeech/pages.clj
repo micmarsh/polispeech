@@ -4,7 +4,12 @@
         [hiccup.core :only [html]]))
 
 (def PAGE_TITLE "Political Speech Generator")
-(def PAGE_HEADER (html [:head [:title PAGE_TITLE]]))
+
+(def CSS_VERSION "1")
+(def CSS_LOCATION (str "css/main.css/?v=" CSS_VERSION))
+(def PAGE_HEADER (html [:head
+        [:link {:rel "stylesheet" :href CSS_LOCATION}]
+        [:title PAGE_TITLE]]))
 
 (def ALLOWED_THEMES #{"mainstream" "radical"})
 

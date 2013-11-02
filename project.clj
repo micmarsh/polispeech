@@ -12,6 +12,7 @@
                 [ring/ring-devel "1.1.8"]
                 [ring-cors "0.1.0"]
                 [hiccup "1.0.4"]
+                [garden "1.1.3"]
                 ;prolly use in both
                 [org.clojure/core.async "0.1.242.0-44b1e3-alpha"]
                 ;cljs deps
@@ -22,7 +23,8 @@
 
   :main polispeech.core
 
-  :plugins [[lein-cljsbuild "0.3.4"]]
+  :plugins [[lein-cljsbuild "0.3.4"]
+            [lein-garden "0.1.0"]]
 
   :cljsbuild {:builds
               {
@@ -37,4 +39,13 @@
                                :optimizations :advanced
                                :pretty-print false}}
               }}
+  :garden {:builds[{
+            :id "screen"
+            :stylesheet style.core/main
+            :compiler {
+              :output-to "resources/public/css/main.css"
+              :pretty-print? true
+            }
+
+    }]}
   )

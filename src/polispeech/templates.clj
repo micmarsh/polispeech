@@ -1,5 +1,5 @@
 (ns polispeech.templates
-    (:use words.template))
+    (:use [words.template :only [deftemplate]]))
 
 (deftemplate speech-intro [:address :follow-up :loaded-question]
     :address ["My " {:mainstream "trusted" :else "fellow"}
@@ -57,7 +57,8 @@
         :introduction speech-intro
         :problem [:lead-in "." :blame-game "." :indignant-statement
                 {:mainstream "." :radical "!"}]
-            :lead-in ["As " (hash-set "you" "we all") "know, " :new-fact]
+            :lead-in [ {:mainstream #{"These days, " :as-know}
+                        :radical :as-know} :new-fact]
                 :new-fact {
                     ;if this could be localized, that would be great
                     :mainstream ["times are tough for"
@@ -66,6 +67,7 @@
                                 (hash-set "defiled" "repressed")
                                 (hash-set "mother nature" "the workers") "for too long"]
                 }
+                :as-know ["As " (hash-set "you" "we all") "know, "]
             :blame-game {
                 :mainstream ["In fact, the economic problems caused by"
                     (hash-set :foreigners :bankers :politicians)

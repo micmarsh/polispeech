@@ -56,7 +56,7 @@
          :radical [#{ "Comrades, " :lead-in-haters}
                   #{"the happily employed" :bankers "corporate CEOs"}] }
          :lead-in-haters #{"My friends, " "Citizens, "}
-     :gonna-hate [:speak-verb "we don't" :do-enough "," :finish-thought "."]
+     :gonna-hate [:speak-verb "we don't" :do-enough "." :finish-thought "."]
          :speak-verb ["may" #{"think" "say" "proclaim"} "that"]
          :do-enough  ["have" {
              :mainstream ["enough "  :mainstream-commodities "to" :good-program] ;TODO empty sets should be an exception! along with nil
@@ -75,8 +75,8 @@
                 :oppressive-institution  #{"the myths of capitalist economics   "
                                         "post-agrarian society"
                                         "planned obsolesence"}
-         :finish-thought [#{"but" "however,"}
-                            "they have been"
+         :finish-thought [#{"However" "Unfortunately"}
+                            ", they have been"
                             #{"mislead" "blinded"}
                             "by their"
                                 {:mainstream #{"special-interest lobbyists"
@@ -88,8 +88,8 @@
                             ["Just as" :victims :triumphed ", so shall we" :also-triumph "!"]}
         :president #{"George Washington" "Lincoln" "Teddy Roosevelt" "FDR"}
         :concede #{"give up" "step down" "throw in the towel"}
-        :opposed-him [:who :did-what]
-            :who #{["his" #{"political opponents" "dissenters"}]
+        :opposed-him [:who? :did-what]
+            :who? #{["his" #{"political opponents" "dissenters"}]
                     "disloyal citizens"}
             :did-what #{"attempted to tarnish his legacy"
                         "opposed all of his essential reforms"
@@ -118,7 +118,7 @@
                                 "pick up our phones"}
             :get-result #{"create some real change in Washington"
                           "move our nation in the right direction"
-                          "secure our Country's future"}
+                          "secure America's future"}
 )
 
 (deftemplate political-speech

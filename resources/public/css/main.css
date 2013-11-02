@@ -1,0 +1,21 @@
+body * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body h1 {
+  margin: 0 auto;
+  max-width: 100px;
+}
+
+body div#speech {
+  margin: 0 auto;
+  max-width: 600px;
+  font-size: 20px;
+}
+
+body select#theme {
+  margin: 0 1.5em;
+  max-width: 100px;
+}

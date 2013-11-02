@@ -49,19 +49,51 @@
 )
 
 (deftemplate speech-closing
-    [:haters ];:gonna-hate ];:historical-validity :inspiration]
+    [:haters :gonna-hate :historical-validity ]; :inspiration]
      :haters
          {:mainstream [ :lead-in-haters
-                #{"some folks" :other-party } ]
+                #{"some folks" "they" } ]
          :radical [#{ "Comrades, " :lead-in-haters}
                   #{"the happily employed" :bankers "corporate CEOs"}] }
-         :lead-in-haters #{"My friends, " "Even though"}
-    ; :gonna-hate [:speak-verb "we don't" :do-enough]
-    ;     :speak-verb ["may" #{"think" "say" "proclaim"} "that"]
-    ;     :do-enough ["have" {
-    ;         :mainstream #{ }
-    ;         :radical #{ }
-    ;     }]
+         :lead-in-haters #{"My friends, " "Citizens, "}
+     :gonna-hate [:speak-verb "we don't" :do-enough "," :finish-thought "."]
+         :speak-verb ["may" #{"think" "say" "proclaim"} "that"]
+         :do-enough  ["have" {
+             :mainstream ["enough "  :mainstream-commodities "to" :good-program] ;TODO empty sets should be an exception! along with nil
+             :radical [ :radical-commodities "to" :radical-program]
+         }]
+            :mainstream-commodities #{"bipartisan support" "votes" "of a budget"}
+            :good-program #{"continue defending our freedom"
+                            "leave no child behind"
+                            "put folks back to work"}
+            :radical-commodities  #{["the" #{"intellectual" "widespread"} "support necessary "]
+                                  "enough money"}
+            :radical-program #{["cast off the oppression of" :oppressive-institution]
+                                ["inspire revolution in the "
+                                #{"universities" "factories" "cities"}]
+                            }
+                :oppressive-institution  #{"the modern economy"
+                                        "post-agrarian society"
+                                        "planned obsolesence"}
+         :finish-thought [#{"but" "however,"}
+                            "they have been"
+                            #{"mislead" "blinded"}
+                            "by their"
+                                {:mainstream #{"special-interest lobbyists"
+                                            "close-mindedness" "biases"}
+                                 :radical #{"greed" "ignorance" "bourgeois upbringings"}}]
+     :historical-validity {:mainstream
+                            ["Did" :president :concede  "when" :opposed-him "? No!" ]
+                         :radical  ""}
+        :president #{"George Washington" "Lincoln" "Teddy Roosevelt" "FDR"}
+        :concede #{"give up" "step down" "throw in the towel"}
+        :opposed-him [:who :did-what]
+            :who #{["his" #{"political opponents" "dissenters"}]
+                    "disloyal citizens"}
+            :did-what #{"attempted to tarnish his legacy"
+                        "opposed all of his essential reforms"
+                        "refused to cooperate with his grand vision"}
+
 )
 
 (deftemplate political-speech

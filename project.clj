@@ -12,6 +12,7 @@
                 [ring/ring-devel "1.1.8"]
                 [ring-cors "0.1.0"]
                 [hiccup "1.0.4"]
+                [org.clojure/core.typed "0.2.14"]
                 ;prolly use in both
                 [org.clojure/core.async "0.1.242.0-44b1e3-alpha"]
                 ;cljs deps

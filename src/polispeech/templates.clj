@@ -1,5 +1,6 @@
 (ns polispeech.templates
-    (:use words.template))
+    (:use words.template
+          clojure.core.typed))
 
 (deftemplate speech-intro [:address :follow-up :loaded-question]
     :address ["My " {:mainstream "trusted" :else "fellow"}
@@ -151,3 +152,4 @@
                                                 "earns more money than you")
         :closing speech-closing
 )
+(ann ^:no-check political-speech Map)

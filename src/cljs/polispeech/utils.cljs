@@ -29,6 +29,8 @@
 (defn log [thing]
     (.log js/console thing))
 
+;TODO this decided not to work all of a sudden, find a real way to
+;req in async cljs
 (defn get-req [url]
     (let [ch (chan 1)]
         (xhr/send url

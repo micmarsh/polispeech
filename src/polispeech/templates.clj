@@ -48,14 +48,14 @@
         }
 )
 
-(deftemplate speech-closing ""
-    ; [:haters ];:gonna-hate ];:historical-validity :inspiration]
-    ; :haters
-    ;     {:mainstream [ :lead-in-haters
-    ;             #{"some folks" :other-party } ]
-    ;         :radical [#{ "Comrades, " :lead-in-haters}
-    ;             #{"the happily employed" :bankers "corporate CEOs"}] }
-    ;     :lead-in-haters #{"My friends, " "Even though"}
+(deftemplate speech-closing
+    [:haters ];:gonna-hate ];:historical-validity :inspiration]
+     :haters
+         {:mainstream [ :lead-in-haters
+                #{"some folks" :other-party } ]
+         :radical [#{ "Comrades, " :lead-in-haters}
+                  #{"the happily employed" :bankers "corporate CEOs"}] }
+         :lead-in-haters #{"My friends, " "Even though"}
     ; :gonna-hate [:speak-verb "we don't" :do-enough]
     ;     :speak-verb ["may" #{"think" "say" "proclaim"} "that"]
     ;     :do-enough ["have" {

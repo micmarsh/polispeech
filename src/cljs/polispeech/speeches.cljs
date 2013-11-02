@@ -1,6 +1,6 @@
 (ns polispeech.speeches
     (:use
-        [polispeech.utils :only [get-req HOST PROTOCOL]]))
+        [polispeech.utils :only [get-req HOST PROTOCOL log]]))
 
 (def SPEECH_URL (str PROTOCOL "//" HOST "/speech"))
 

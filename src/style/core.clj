@@ -24,7 +24,7 @@
 
 (defstyles main
     [:body
-        ["*" BOX_SIZING]
+       ; ["*" BOX_SIZING]
         [:h1
             {:max-width TITLE_WIDTH
              :margin TITLE_MARGIN}]

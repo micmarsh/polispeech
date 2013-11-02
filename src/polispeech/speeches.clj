@@ -13,8 +13,10 @@
         (map trim)
         (join HTML_BREAK )))
 
+;perhaps not ideal to be banging these strings together,
+;maybe couple string generation and some pre-hiccuping
 (defn- get-speech [template]
     (fn [theme]
-        (eval-grammar template (keyword theme))))
+        (str "<p>" (eval-grammar template (keyword theme)) "</p>")))
 
 (def get-political-speech (get-speech political-speech))

@@ -7,7 +7,7 @@
        [dommy.macros :only [sel1]]
        [cljs.core.async.macros :only [go]]))
 
-(def speech (sel1 :p#speech))
+(def speech (sel1 :div#speech))
 (def selector (sel1 :select#theme))
 
 (def event-text (comp selected-text event-elem))
@@ -20,6 +20,7 @@
         (go
             (let [theme (event-text event)
                   new-speech (get-speech theme)]
+                (log "wut")
                 (set-speech! (<! new-speech))))))
 
 

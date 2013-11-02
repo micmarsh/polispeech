@@ -20,7 +20,7 @@
 (defn- surrounding-page [speech current-theme]
     [:body
         [:h1 PAGE_TITLE]
-        [:p#speech speech]
+        [:div#speech [:p speech]]
         [:select#theme
             (for [theme ALLOWED_THEMES]
                 [:option

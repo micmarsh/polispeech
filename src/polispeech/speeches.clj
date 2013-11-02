@@ -5,7 +5,7 @@
         [polispeech.templates :only [political-speech]]))
 
 (def NEWLINE_REGEX #"\n")
-(def HTML_BREAK "<br/>")
+(def HTML_BREAK "</p><p>")
 
 (defn htmlize-newlines [no-html]
     "Replaces '\\n' with '<br/>'"

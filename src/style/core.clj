@@ -13,7 +13,7 @@
 (def CENTER "0 auto")
 
 (def TITLE_MARGIN CENTER)
-(def TITLE_WIDTH (px 400))
+(def TITLE_WIDTH (px 100))
 
 (def SPEECH_MARGIN CENTER)
 (def SPEECH_WIDTH (px 600))
@@ -24,7 +24,7 @@
 
 (defstyles main
     [:body
-       ; ["*" BOX_SIZING]
+        ["*" BOX_SIZING]
         [:h1
             {:max-width TITLE_WIDTH
              :margin TITLE_MARGIN}]

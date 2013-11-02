@@ -32113,21 +32113,21 @@ polispeech.utils.get_req = function get_req(url) {
     var c__5140__auto__ = cljs.core.async.chan.call(null, 1);
     cljs.core.async.impl.dispatch.run.call(null, function() {
       var f__5141__auto__ = function() {
-        var switch__5090__auto__ = function(state_12097) {
-          var state_val_12098 = state_12097[1];
-          if(state_val_12098 === 2) {
-            var inst_12094 = state_12097[2];
-            var inst_12095 = cljs.core.async.close_BANG_.call(null, ch);
-            var state_12097__$1 = function() {
-              var statearr_12099 = state_12097;
-              statearr_12099[5] = inst_12094;
-              return statearr_12099
+        var switch__5090__auto__ = function(state_12162) {
+          var state_val_12163 = state_12162[1];
+          if(state_val_12163 === 2) {
+            var inst_12159 = state_12162[2];
+            var inst_12160 = cljs.core.async.close_BANG_.call(null, ch);
+            var state_12162__$1 = function() {
+              var statearr_12164 = state_12162;
+              statearr_12164[5] = inst_12159;
+              return statearr_12164
             }();
-            return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_12097__$1, inst_12095)
+            return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_12162__$1, inst_12160)
           }else {
-            if(state_val_12098 === 1) {
-              var state_12097__$1 = state_12097;
-              return cljs.core.async.impl.ioc_helpers.put_BANG_.call(null, state_12097__$1, 2, ch, resp)
+            if(state_val_12163 === 1) {
+              var state_12162__$1 = state_12162;
+              return cljs.core.async.impl.ioc_helpers.put_BANG_.call(null, state_12162__$1, 2, ch, resp)
             }else {
               return null
             }
@@ -32137,14 +32137,14 @@ polispeech.utils.get_req = function get_req(url) {
           return function() {
             var state_machine__5091__auto__ = null;
             var state_machine__5091__auto____0 = function() {
-              var statearr_12101 = new Array(6);
-              statearr_12101[0] = state_machine__5091__auto__;
-              statearr_12101[1] = 1;
-              return statearr_12101
+              var statearr_12166 = new Array(6);
+              statearr_12166[0] = state_machine__5091__auto__;
+              statearr_12166[1] = 1;
+              return statearr_12166
             };
-            var state_machine__5091__auto____1 = function(state_12097) {
+            var state_machine__5091__auto____1 = function(state_12162) {
               while(true) {
-                var result__5092__auto__ = switch__5090__auto__.call(null, state_12097);
+                var result__5092__auto__ = switch__5090__auto__.call(null, state_12162);
                 if(cljs.core.keyword_identical_QMARK_.call(null, result__5092__auto__, new cljs.core.Keyword(null, "recur", "recur", 1122293407))) {
                   continue
                 }else {
@@ -32153,12 +32153,12 @@ polispeech.utils.get_req = function get_req(url) {
                 break
               }
             };
-            state_machine__5091__auto__ = function(state_12097) {
+            state_machine__5091__auto__ = function(state_12162) {
               switch(arguments.length) {
                 case 0:
                   return state_machine__5091__auto____0.call(this);
                 case 1:
-                  return state_machine__5091__auto____1.call(this, state_12097)
+                  return state_machine__5091__auto____1.call(this, state_12162)
               }
               throw new Error("Invalid arity: " + arguments.length);
             };
@@ -32169,9 +32169,9 @@ polispeech.utils.get_req = function get_req(url) {
         }(switch__5090__auto__)
       }();
       var state__5142__auto__ = function() {
-        var statearr_12102 = f__5141__auto__.call(null);
-        statearr_12102[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__5140__auto__;
-        return statearr_12102
+        var statearr_12167 = f__5141__auto__.call(null);
+        statearr_12167[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__5140__auto__;
+        return statearr_12167
       }();
       return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped.call(null, state__5142__auto__)
     });
@@ -34903,24 +34903,19 @@ dommy.core.listen_BANG_.call(null, polispeech.page.selector, new cljs.core.Keywo
   var c__5140__auto__ = cljs.core.async.chan.call(null, 1);
   cljs.core.async.impl.dispatch.run.call(null, function() {
     var f__5141__auto__ = function() {
-      var switch__5090__auto__ = function(state_12110) {
-        var state_val_12111 = state_12110[1];
-        if(state_val_12111 === 2) {
-          var inst_12107 = state_12110[2];
-          var inst_12108 = polispeech.page.set_speech_BANG_.call(null, inst_12107);
-          var state_12110__$1 = state_12110;
-          return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_12110__$1, inst_12108)
+      var switch__5090__auto__ = function(state_12076) {
+        var state_val_12077 = state_12076[1];
+        if(state_val_12077 === 2) {
+          var inst_12073 = state_12076[2];
+          var inst_12074 = polispeech.page.set_speech_BANG_.call(null, inst_12073);
+          var state_12076__$1 = state_12076;
+          return cljs.core.async.impl.ioc_helpers.return_chan.call(null, state_12076__$1, inst_12074)
         }else {
-          if(state_val_12111 === 1) {
-            var inst_12103 = polispeech.page.event_text.call(null, event);
-            var inst_12104 = polispeech.speeches.get_speech.call(null, inst_12103);
-            var inst_12105 = polispeech.utils.log.call(null, "wut");
-            var state_12110__$1 = function() {
-              var statearr_12112 = state_12110;
-              statearr_12112[5] = inst_12105;
-              return statearr_12112
-            }();
-            return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, state_12110__$1, 2, inst_12104)
+          if(state_val_12077 === 1) {
+            var inst_12070 = polispeech.page.event_text.call(null, event);
+            var inst_12071 = polispeech.speeches.get_speech.call(null, inst_12070);
+            var state_12076__$1 = state_12076;
+            return cljs.core.async.impl.ioc_helpers.take_BANG_.call(null, state_12076__$1, 2, inst_12071)
           }else {
             return null
           }
@@ -34930,14 +34925,14 @@ dommy.core.listen_BANG_.call(null, polispeech.page.selector, new cljs.core.Keywo
         return function() {
           var state_machine__5091__auto__ = null;
           var state_machine__5091__auto____0 = function() {
-            var statearr_12114 = new Array(6);
-            statearr_12114[0] = state_machine__5091__auto__;
-            statearr_12114[1] = 1;
-            return statearr_12114
+            var statearr_12079 = new Array(5);
+            statearr_12079[0] = state_machine__5091__auto__;
+            statearr_12079[1] = 1;
+            return statearr_12079
           };
-          var state_machine__5091__auto____1 = function(state_12110) {
+          var state_machine__5091__auto____1 = function(state_12076) {
             while(true) {
-              var result__5092__auto__ = switch__5090__auto__.call(null, state_12110);
+              var result__5092__auto__ = switch__5090__auto__.call(null, state_12076);
               if(cljs.core.keyword_identical_QMARK_.call(null, result__5092__auto__, new cljs.core.Keyword(null, "recur", "recur", 1122293407))) {
                 continue
               }else {
@@ -34946,12 +34941,12 @@ dommy.core.listen_BANG_.call(null, polispeech.page.selector, new cljs.core.Keywo
               break
             }
           };
-          state_machine__5091__auto__ = function(state_12110) {
+          state_machine__5091__auto__ = function(state_12076) {
             switch(arguments.length) {
               case 0:
                 return state_machine__5091__auto____0.call(this);
               case 1:
-                return state_machine__5091__auto____1.call(this, state_12110)
+                return state_machine__5091__auto____1.call(this, state_12076)
             }
             throw new Error("Invalid arity: " + arguments.length);
           };
@@ -34962,9 +34957,9 @@ dommy.core.listen_BANG_.call(null, polispeech.page.selector, new cljs.core.Keywo
       }(switch__5090__auto__)
     }();
     var state__5142__auto__ = function() {
-      var statearr_12115 = f__5141__auto__.call(null);
-      statearr_12115[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__5140__auto__;
-      return statearr_12115
+      var statearr_12080 = f__5141__auto__.call(null);
+      statearr_12080[cljs.core.async.impl.ioc_helpers.USER_START_IDX] = c__5140__auto__;
+      return statearr_12080
     }();
     return cljs.core.async.impl.ioc_helpers.run_state_machine_wrapped.call(null, state__5142__auto__)
   });

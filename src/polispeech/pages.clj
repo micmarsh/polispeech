@@ -3,7 +3,7 @@
         [polispeech.speeches :only [htmlize-newlines get-political-speech]]
         [hiccup.core :only [html]]))
 
-(def PAGE_TITLE "Political Speech Generator")
+(def PAGE_TITLE "Speechbot")
 
 (def CSS_VERSION "1")
 (def CSS_LOCATION (str "css/main.css/?v=" CSS_VERSION))

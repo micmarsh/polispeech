@@ -4,13 +4,12 @@
 (deftemplate speech-intro [:address :follow-up :loaded-question]
     :address ["My " {:mainstream "trusted" :else "fellow"}
                 {:mainstream "citizens"
-                :radical "brothers and sisters in solidarity"
-                :else "Americans"} ", " ]
+                :radical "brothers and sisters in solidarity"}
+                 ", " ]
     :follow-up [ (hash-set "2" "6") (hash-set "years" "weeks") "ago today," :enemy :did-bad-thing "."]
         :enemy {
             :mainstream (hash-set "my opponent" :other-party)
             :radical (hash-set "the 1%" "our capitalist oppressors")
-            :else :other-party
         }
             :other-party "the other party"
         :did-bad-thing [:cause "that " :effect ]
@@ -49,7 +48,21 @@
         }
 )
 
-(deftemplate speech-closing [""])
+(deftemplate speech-closing ""
+    ; [:haters ];:gonna-hate ];:historical-validity :inspiration]
+    ; :haters
+    ;     {:mainstream [ :lead-in-haters
+    ;             #{"some folks" :other-party } ]
+    ;         :radical [#{ "Comrades, " :lead-in-haters}
+    ;             #{"the happily employed" :bankers "corporate CEOs"}] }
+    ;     :lead-in-haters #{"My friends, " "Even though"}
+    ; :gonna-hate [:speak-verb "we don't" :do-enough]
+    ;     :speak-verb ["may" #{"think" "say" "proclaim"} "that"]
+    ;     :do-enough ["have" {
+    ;         :mainstream #{ }
+    ;         :radical #{ }
+    ;     }]
+)
 
 (deftemplate political-speech
     (map #(identity ["\t" %])

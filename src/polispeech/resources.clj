@@ -24,6 +24,7 @@
     :allowed-methods [:get]
     :handle-ok (fn [context]
         (let [theme (get-theme context)
-              make-result (comp htmlize-newlines get-political-speech)]
+              make-result (comp htmlize-newlines get-political-speech)
+              n (println theme)]
             (make-result theme)))
 )

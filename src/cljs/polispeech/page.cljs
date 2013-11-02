@@ -19,8 +19,8 @@
         (log (event-elem event))
         (go
             (let [theme (event-text event)
-                  new-speech (get-speech theme)]
-                (log "wut")
-                (set-speech! (<! new-speech))))))
+                  new-speech (get-speech theme)
+                  text (<! new-speech)]
+                (set-speech! text)))))
 
 

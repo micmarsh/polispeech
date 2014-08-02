@@ -1,4 +1,4 @@
-(ns polispeech.pages
+(ns polispeech.page
     (:use
         [polispeech.speeches :only [htmlize-newlines get-political-speech]]
         [hiccup.core :only [html]]))
@@ -15,7 +15,6 @@
 
 (def JS_VERSION "1.0.1")
 (def JS_LOCATION (str "js/speeches.js/?v=" JS_VERSION))
-
 
 (defn- surrounding-page [speech current-theme]
     [:body

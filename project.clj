@@ -7,9 +7,8 @@
                 [generator "0.1.2"]
                 [marshmacros "0.2.1"]
                 [garden "1.1.3"]
-                ;prolly use in both
+                [hiccups "0.3.0"]
                 [org.clojure/core.async "0.1.267.0-0d7780-alpha"]
-                ;cljs deps
                 [org.clojure/clojurescript "0.0-1934"]
                 [prismatic/dommy "0.1.1"]]
 

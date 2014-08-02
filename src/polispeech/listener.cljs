@@ -1,4 +1,4 @@
-(ns polispeech.page
+(ns polispeech.listener
     (:use
         [dommy.core :only [listen! set-html!]]
         [polispeech.utils :only [selected-text event-elem log]]

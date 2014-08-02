@@ -1,10 +1,22 @@
 (ns polispeech.speeches
     (:use
-        [polispeech.utils :only [get-req HOST PROTOCOL log]]))
+        [clojure.string :only [split trim join]]
+        [words.parser :only [eval-grammar]]
+        [polispeech.templates :only [political-speech]]))
 
-(def SPEECH_URL (str PROTOCOL "//" HOST "/speech"))
+(def NEWLINE_REGEX #"\n")
+(def HTML_BREAK "</p><p>")
 
-(defn get-speech [theme]
-    (let [url (str SPEECH_URL "?theme=" theme)
-        result (get-req url)]
-    result))
+(defn htmlize-newlines [no-html]
+    "Replaces '\\n' with '<br/>'"
+    (->> (split no-html NEWLINE_REGEX)
+        (map trim)
+        (join HTML_BREAK )))
+
+;perhaps not ideal to be banging these strings together,
+;maybe couple string generation and some pre-hiccuping
+(defn- get-speech [template]
+    (fn [theme]
+        (str "<p>" (eval-grammar template (keyword theme)) "</p>")))
+
+(def get-political-speech (get-speech political-speech))

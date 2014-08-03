@@ -1,36 +1,31 @@
 (ns polispeech.page
     (:use
+        [dommy.core :only [listen! set-html!]]
+        [polispeech.utils :only [selected-text event-elem log]]
         [polispeech.speeches :only [htmlize-newlines get-political-speech]]
-        [hiccup.core :only [html]]))
+    (:use-macros
+        [hiccups.core :only (html)]
+        [dommy.macros :only [sel1]])))
 
-(def PAGE_TITLE "Speechbot")
+(defn make-speech [theme]
+  (let [raw-speech (get-political-speech theme)
+        with-html (htmlize-newlines raw-speech)]
+    (html (surrounding-page with-html theme))))
 
-(def CSS_VERSION "1")
-(def CSS_LOCATION (str "css/main.css/?v=" CSS_VERSION))
-(def PAGE_HEADER (html [:head
-        [:link {:rel "stylesheet" :href CSS_LOCATION}]
-        [:title PAGE_TITLE]]))
 
-(def ALLOWED_THEMES #{"mainstream" "radical"})
+(def speech (sel1 :div#speech))
+(def selector (sel1 :select#theme))
 
-(def JS_VERSION "1.0.1")
-(def JS_LOCATION (str "js/speeches.js/?v=" JS_VERSION))
+(def event-text (comp selected-text event-elem))
+(def set-speech! (partial set-html! speech))
 
-(defn- surrounding-page [speech current-theme]
-    [:body
-        [:h1 PAGE_TITLE]
-        [:div#speech [:p speech]]
-        [:select#theme
-            (for [theme ALLOWED_THEMES]
-                [:option
-                    (if (= theme current-theme)
-                        {:value theme :selected "_"}
-                        {:value theme})
-                theme])]
-        [:script {:src JS_LOCATION}]])
+(listen! selector :change
+    (fn [event]
+        (log (event-elem event))
+        (let [theme (event-text event)
+              new-speech (make-speech theme)]
+            (set-speech! new-speech))))
 
-(defn main-page [theme]
-    (let [raw-speech (get-political-speech theme)
-          with-html (htmlize-newlines raw-speech)]
-          (str PAGE_HEADER
-            (html (surrounding-page with-html theme)))))
+(-> "mainstream" make-speech set-speech!)
+
+

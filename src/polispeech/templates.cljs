@@ -1,5 +1,6 @@
 (ns polispeech.templates
-    (:use [words.template :only [deftemplate]]))
+    (:use-macros [generator.macros :only [deftemplate]]))
+
 
 (deftemplate speech-intro [:address :follow-up :loaded-question]
     :address ["My " {:mainstream "trusted" :else "fellow"}

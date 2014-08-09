@@ -1,8 +1,8 @@
 (ns polispeech.page
     (:use
         [dommy.core :only [listen! set-html!]]
-        [polispeech.utils :only [selected-text event-elem log]]
         [polispeech.speeches :only [htmlize-newlines get-political-speech]])
+    (:require [polispeech.utils :as utils])
     (:use-macros
         [dommy.macros :only (sel1)]))
 
@@ -19,17 +19,21 @@
 (def speech-elem (sel1 :div#speech))
 (def selector-elem (sel1 :select#theme))
 
-(def event-text (comp selected-text event-elem))
+(def event-text (comp utils/selected-text utils/event-elem))
 (def set-speech! (partial set-html! speech-elem))
+
+(defn set-from-hash! []
+  (->> (or (utils/get-hash)
+           "#mainstream")
+    (rest)
+    (apply str)
+    (make-speech)
+    (set-speech!)))
 
 (listen! selector-elem :change
     (fn [event]
-        (log (event-elem event))
         (let [theme (event-text event)]
-             (-> theme
-              make-speech
-              set-speech!))))
+             (utils/set-hash! theme)
+             (set-from-hash!))))
 
-(-> "mainstream" make-speech set-speech!)
-
-
+(set-from-hash!)

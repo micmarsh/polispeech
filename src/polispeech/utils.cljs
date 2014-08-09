@@ -15,6 +15,15 @@
 (defn event-elem [event]
     (aget event "target"))
 
-(defn log [thing]
-    (.log js/console thing))
+(defn get-hash []
+    (let [result (.-hash js/location)]
+        (if (empty? result)
+            nil
+            result)))
+
+(defn set-hash! [word]
+    (set! (.-hash js/location)
+        (if (= \# (first word))
+            word
+            (str \# word))))
 

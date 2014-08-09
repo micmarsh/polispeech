@@ -1,7 +1,7 @@
 (ns polispeech.speeches
     (:use
         [clojure.string :only [split trim join]]
-        [words.parser :only [eval-grammar]]
+        [generator.parser :only [eval-grammar]]
         [polispeech.templates :only [political-speech]]))
 
 (def NEWLINE_REGEX #"\n")
@@ -15,8 +15,9 @@
 
 ;perhaps not ideal to be banging these strings together,
 ;maybe couple string generation and some pre-hiccuping
-(defn- get-speech [template]
-    (fn [theme]
-        (str "<p>" (eval-grammar template (keyword theme)) "</p>")))
+(defn- get-speech [template theme]
+    (str "<p>"
+        (eval-grammar template [(keyword theme)]) "</p>"))
 
-(def get-political-speech (get-speech political-speech))
+(def get-political-speech
+    (partial get-speech political-speech))

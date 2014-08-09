@@ -16,12 +16,12 @@
               {
                 :dev
                   {:source-paths ["src/"]
-                    :compiler {:output-to "resources/public/js/speeches.js"
+                    :compiler {:output-to "speeches.js"
                                :optimizations :whitespace
                                :pretty-print true}}
                 :prod
                   {:source-paths ["src/"]
-                    :compiler {:output-to "resources/public/js/speeches.js"
+                    :compiler {:output-to "speeches.js"
                                :optimizations :advanced
                                :pretty-print false}}
               }}
@@ -31,7 +31,7 @@
             :id "screen"
             :stylesheet style.core/main
             :compiler {
-              :output-to "resources/public/css/main.css"
+              :output-to "main.css"
               :pretty-print? true
             }
 
